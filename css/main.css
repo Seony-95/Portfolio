@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* 인코딩시 한국어가 깨지지 않도록 함 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Roboto&display=swap');
+/* 구글 폰트 */
+
+*{
+    margin:0;
+    padding:0;
+}
+/* 하나의 document에 doctype을 씀. margin padding이 기본적으로 세팅되어있다. */
+/* 기본적으로 세팅된걸 지우기 위해 전체를 reset */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, tbody, tfoot, thead, tr, th, td{
+    margin:0;
+    padding:0;
+}
+
+/* 모든 것의 margin과 padding을 없애줘야함. 내가 꾸민대로 할 거니까 초기화!! */
+
+a{
+    color:inherit;
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+/*  a 태그의 보라색글씨 없애기 */
+/* a태그 기능은 있으나 css만 없앤 상태 */
+
+address,em,i{
+    font-style:none;
+}
+
+
+/* 다 초기화하고 마음껏 쓸거냐, a태그 안쓰고 div처리해줄거냐 차이 */
+
+h1,h2,h3,h4,h5,h6{
+    font-style: inherit;
+}
+
+a:hover{
+    text-decoration: none;
+    color:inherit;
+}
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    background-color: white;
+}
+/* body에 걸면 모든 글씨체가 바뀜 */
+
+/* ▶ 1. 기본 세팅이 끝남 (초기화 과정) */
+
+/*auto랑 hidden을 제일 많이씀. */
+
+.wrap{
+    width:100%;
+    overflow:hidden;
+}
+/* 100%로 정하는 이유: 크기가 작아지거나 커져도 변동없게끔 */
+/* header기 때문에 짤리니까  */
+
+header{
+    width:100%;
+    position:fixed;
+    z-index: 100;
+    background:red;
+}
+
+/* header에 position fixed를 쓰면 고정되어서 움직이지 않음. */
+/* z index : 맨 위로 기능 (ppt에서 글씨 위에 나타나게 하는거) */
+
+.innerHeader{
+    padding:0 50px;
+    height:90px;
+    transition: all 0.3s;
+}
+/* padding은 총 4개  / 2개만 쓰면 양쪽으로 나뉘어짐 (위아래/양옆) // 양옆은 0으로 두고, 위아래는 60px */
+/* padding header가 위에 딱 붙게 하는거 padding/  그 padding의 크기(높이) 조절은 height  */
+/* transition: 0.3초 늦게 나타남(움직이는 효과같은게 나옴) */
+
+.innerHeader .logo{
+    width:200px;
+    height:36px;
+    float:left;
+    margin-top: 28px;
+    transition: all 1s;
+}
+/* class선택자 내부에 있는 logo만 들어가게 하기 */
+/* img 크기는 나중에 줄일 것. */
+/* 로고가 천천히 아래로 가는 움직임이 옴 */
+
+.innerHeader .logo a{
+    display:block;
+    width:100%;
+    height: 100%;
+    position: relative;
+}
+/* postiton relative: 내가 지정해놓은 이곳에서 정해놓은 기준이 있는 점부터 30px 이동 */
+/* 이미지 기준으로 a태그를 작동하라는 뜻 */
+
+.innerHeader .logo a img{
+    /* .logo를 띄어써야한다. */
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
+    transition: all 0.3s;
+}
+/* 앱솔루트 : 글자수를 이미지 크기에 맞춤 */
+
+.innerHeader .log a img:nth-child(2){
+    opacity:0;
+}
+
+/* img 2번째를 가지고 오겠다. nth-child */
+/*  */
